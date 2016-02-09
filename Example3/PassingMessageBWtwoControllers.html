@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="PostController.js"></script>
+    <script src="ReceiverController.js"></script>
+</head>
+<body>
+    <div ng-app="app">
+        <h1> Services </h1>
+        <div ng-controller="ReceiverController as list"> <!--Giving alias to  controller -->
+            <p ng-repeat="message in list.messages">
+                {{message.id}}: {{message.text}}
+            </p>
+        </div>
+
+        <div ng-controller="PostCtrl as post">
+            <form ng-submit="post.addMessage(post.newMessage)">
+                <input type="text" ng-model="post.newMessage" />
+                <button type="submit">Add Message</button>
+
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>

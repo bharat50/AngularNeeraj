@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+    <title></title>
+</head>
+<body ng-app="MyCustomerModule">
+    <div ng-controller="CustomerController">
+        Cusotmer FirstName: <input type="text" placeholder="Enter First Name" ng-bind="Customer.FirstName" /> <br />
+        {{Customer.FirstName}}
+        <br />
+        Customer Amount: <input type="text" placeholder="Enter Amount" ng-model="Customer.Amount" /> <br />
+
+        <div style="width:240px; background-color:{{CustomerCollor.ColorName}}; height:20px">  </div>
+       
+    </div>
+    <div>
+    <script src="Scripts/angular.js"></script>
+    <script src="MyCustomer.js"></script>
+        </div>
+</body>
+</html>

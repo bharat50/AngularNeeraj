@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+         
+    </head>
+    <body ng-app="EmpRegistrationModule">
+        <h1></h1>
+        <div ng-controller="EmployeeController">
+            <h1>{{SuccessMessage}}</h1>
+            <h1>{{ErrorMessage}}</h1>
+
+         <form name="userForm" ng-submit="SaveData()" novalidate>
+              <div>
+                    <label>FirstName</label>
+                    <input type="text" name="name" ng-model="name" required ng-minlength="3" ng-maxlength="8"/>
+                    <p ng-show="userForm.name.$invalid && !userForm.name.$pristine">Name must be between 3-8 words</p>
+                    <p ng-show="userForm.name.error.minlength">User Name is too short</p>
+                    <p ng-show="userForm.name.error.maxlength">User Name is too long</p>
+                </div>
+             <div>
+                    <label>Company</label>
+                    <input type="text" name="company" ng-model="company" required />
+                    <p ng-show="userForm.company.$invalid && !userForm.company.$pristine">Company Name is required</p>
+                </div>
+             <div>
+                    <label>Location</label>
+                    <input type="text" name="location" ng-model="location" required />
+                    <p ng-show="userForm.location.$invalid && userForm.location.$dirty">Please Enter Location</p>
+                </div>
+              <div>
+                    <lable> Language</lable>
+                    <input type="text" name="language" ng-model="language" />
+                   @* <p ng-show="userForm.language.$invalid && userForm.language.$dirty">Please Enter Language</p>*@
+                </div>
+             <div>
+                    <label> Salary</label>
+                    <input type="number" name="salary" ng-model="salary" />
+                </div>
+             <div>
+                    <label>Email</label>
+                    <input type="email" name="email" ng-model="email" />
+                    <p ng-show="userForm.email.$invalid && !userForm.email.$pristine"></p>
+                </div>
+             <div>
+                    <label> Mobile Number</label>
+                    <input type="number" name="contactno" ng-model="contactno" pattern="(\d{10})" />
+                    <p ng-show="userForm.contactno.$invalid && !userForm.contactno.$pristine">Must give 10 digit numbers</p>
+                </div>
+
+              <div>
+                <button type="submit" ng-disabled="userForm.$invalid">Save Data</button>
+      </div>
+             </form>
+          
+
+        </div>
+        <div>
+                       <script src="~/Scripts/angular.js"></script>
+        <script src="~/CustomScripts/Employee.js"></script>
+        </div>
+        
+    </body>
+</html>

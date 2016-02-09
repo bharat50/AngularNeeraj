@@ -1,0 +1,49 @@
+﻿<h2>Search Result Div</h2>
+<div id="searchResultDiv">
+          <div ng-show="user">
+                First Name: {{user.Name}}<br />
+                Company :{{user.Company}}<br />
+                Location :{{user.Location}}<br />
+            </div>
+            <div>
+                Select OrderBy:
+                <select ng-model="sortemployeeby">
+                    <option value="+Name">Name</option><!--Givign Column Name which will get bound to property -->
+                    <option value="-Language">Language</option>
+                    <option value="+Rating">Rating</option>
+                    <option value="-Company">Company</option>
+                </select>
+
+            </div>
+            <div>
+                <table ng-hide="!user">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Company</th>
+                            <th>Location</th>
+                            <th>Rating</th>
+                            <th>Language</th>
+                            <th>Salary</th>
+                            <th>Email</th>
+                            <th>Contact No</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       @* <tr ng-repeat="emp in allemps | orderBy:'Salary'">*@
+                         <tr ng-repeat="emp in allemps | orderBy:['Name','Salary']">
+                            <td>{{emp.Name | uppercase}}</td>
+                            <td>{{emp.Company}}</td>
+                            <td>{{emp.Location | lowercase}}</td>
+                            <td>{{emp.Rating | number}}</td>
+                            <td>{{emp.Language}}</td>
+                            <td>{{emp.Salary | currency:"&#8377;"}}</td>
+                             <td>{{emp.Email}}</td>
+                            <td>{{emp.ContactNo}}</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+</div>
+       

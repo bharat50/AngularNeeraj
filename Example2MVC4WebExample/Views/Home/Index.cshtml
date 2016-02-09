@@ -1,0 +1,31 @@
+﻿<html>
+    <head>
+        <title>Employees</title>
+    </head>
+    <body ng-app="EmployeeModule">
+        <div ng-controller="EmployeeController">
+            <input type="text" placeholder="Enter FirstName" ng-model="empFName" /><br />
+            <input type="text" placeholder="Enter City" ng-model="empCity" /> <br />
+            <input  type="submit" value="Insert Data" ng-click="SaveData()" />
+            <input type="submit" value="GetData" ng-click="GetDataFromDB()" />
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>City</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="em in employeedata">
+                            <td>{{em.FirstName}}</td>
+                            <td>{{em.City}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="~/Scripts/angular.js"></script>
+        <script src="~/JS/Employee.js"></script>
+    </body>
+</html>

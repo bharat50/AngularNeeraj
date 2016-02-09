@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/angular.js"></script>
+    <script type="text/javascript">
+        function CustomFunction() {
+            var data = document.getElementById("txtFN").value;
+            document.getElementById("output").innerHTML = data;
+
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Creating an example using normal Javascript-->
+        <input type="text" placeholder="Enter First Name" id="txtFN"  onchange="CustomFunction();" />
+       <div id="output"> </div>
+
+    <!-- Angular JS binding using    ng-model     -->
+    <div ng-app=""> <!-- To initiate Angular JS Module -->
+      <input type="text" placeholder="Enter First Name" id="Text1" ng-model="mydata"  />
+        <div id="output1">
+            User Enter: {{mydata}}
+        </div>
+    </div>
+
+</body>
+</html>
